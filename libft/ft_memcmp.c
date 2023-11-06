@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 18:08:21 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/06 20:03:39 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/06 20:04:26 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/06 20:26:25 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,30 @@
 //#include <string.h>
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	unsigned char	*str;
-	unsigned char	check;
+	unsigned char	*s1;
+	unsigned char	*s2;
 	size_t			i;
 
-	str = (unsigned char *)s;
-	check = (unsigned char)c;
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
 	i = 0;
 	while (i < n)
 	{
-		if (str[i] == check)
-			return ((void *)&str[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
 /*int	main(void)
 {
-	char	str[20] = "LLLLLLLWLLL";
+	char	str1[20] = "tweedledie";
+	char	str2[20] = "tweedledem";
 
-	printf("%p\n", ft_memchr(str, 'W', 10));
-	printf("%p\n", memchr(str, 'W', 10));
+	printf("%d\n", ft_memcmp(str1, str2, 9));
+	printf("%d\n", memcmp(str1, str2, 9));
 	return (0);
 }*/
