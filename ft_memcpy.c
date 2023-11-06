@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:54:22 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/06 16:08:16 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/02 13:49:11 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/02 16:23:57 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
+void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
+	char	*d;
+	char	*s;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	while (dest[i] && i < dstsize)
-		i++;
-	while (src[j] && i + j < dstsize - 1)
+	d = (char *)dest;
+	s = (char *)src;
+	while (i < len)
 	{
-		dest[i + j] = src[j];
-		j++;
+		d[i] = s[i];
+		i++;
 	}
-	if (i < dstsize)
-		dest[i + j] = '\0';
-	return (i + j);
+	return (dest);
 }
 
 /*int	main(void)
 {
-	char	str1[15] = "sourcesource";
-	char	str2[30] = "destdest";
+	const char	src[25] = "copy this filthy casual";
+	char	dest[25] = "smol";
 
-	printf("%s\n", str2);
-	ft_strlcat(str2, str1, 20);
-	printf("%s\n", str2);
+	printf("%s\n", dest);
+	ft_memcpy(dest, src + 7, 20);
+	printf("%s\n", dest);
 	return (0);
 }*/

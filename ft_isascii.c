@@ -1,44 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:54:22 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/06 16:08:16 by yousong          ###   ########.fr       */
+/*   Created: 2023/10/30 18:05:52 by yousong           #+#    #+#             */
+/*   Updated: 2023/10/30 18:11:47 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
+int	ft_isascii(int i)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] && i < dstsize)
-		i++;
-	while (src[j] && i + j < dstsize - 1)
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	if (i < dstsize)
-		dest[i + j] = '\0';
-	return (i + j);
+	if (i >= 0 && i <= 127)
+		return (1);
+	return (0);
 }
 
 /*int	main(void)
 {
-	char	str1[15] = "sourcesource";
-	char	str2[30] = "destdest";
-
-	printf("%s\n", str2);
-	ft_strlcat(str2, str1, 20);
-	printf("%s\n", str2);
+	printf("%d", ft_isascii('D'));
+	printf("\n%d", ft_isascii('+'));
+	printf("\n%d", ft_isascii(128));
 	return (0);
 }*/

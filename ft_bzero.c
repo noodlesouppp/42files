@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 02:54:22 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/06 16:08:16 by yousong          ###   ########.fr       */
+/*   Created: 2023/10/31 16:13:55 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/02 13:47:42 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+/*#include <stdio.h>
+#include <strings.h>
+#include <string.h>*/
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, const char *src, size_t dstsize)
+void	ft_bzero(void *str, size_t i)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] && i < dstsize)
-		i++;
-	while (src[j] && i + j < dstsize - 1)
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	if (i < dstsize)
-		dest[i + j] = '\0';
-	return (i + j);
+	ft_memset(str, 0, i);
 }
 
 /*int	main(void)
 {
-	char	str1[15] = "sourcesource";
-	char	str2[30] = "destdest";
+	char	str[50] = "PLEASE DONT REMOVE ME";
+	char	str2[50] = "PLEASe DONT REMOVE ME";
 
+	printf("%s\n", str);
+	bzero(str, 6);
+	printf("%s\n", str);
 	printf("%s\n", str2);
-	ft_strlcat(str2, str1, 20);
+	ft_bzero(str2, 6);
 	printf("%s\n", str2);
-	return (0);
 }*/
