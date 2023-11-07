@@ -6,14 +6,14 @@
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 16:25:41 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/02 19:32:21 by yousong          ###   ########.fr       */
+/*   Updated: 2023/11/07 03:34:28 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 #include "libft.h"
 
-void	*memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*d;
 	unsigned char	*s;
@@ -48,7 +48,7 @@ void	*memmove(void *dest, const void *src, size_t n)
 	char	dest[30] = "DONTMOVEMEPLEASEDONTMOVEME";
 
 	printf("%s\n", dest);
-	memmove(dest, src, 10);
+	ft_memmove(dest, src, 10);
 	printf("%s", dest);
 	return (0);
 }*/
