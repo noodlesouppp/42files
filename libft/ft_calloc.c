@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 12:25:57 by yousong           #+#    #+#             */
-/*   Updated: 2023/10/31 12:46:21 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/07 16:50:54 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/07 21:35:43 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
+//#include <stdlib.h>
 #include "libft.h"
 
-size_t	ft_strlen(const char*str)
+void	*ft_calloc(size_t count, size_t size)
 {
+	void	*ptr;
 	size_t	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_memset(ptr, 0, count * size);
+	return (ptr);
 }
-
-/*int	main(void)
-{
-	printf("%d", ft_strlen("stringstringstring"));
-	printf("\n%zu", strlen("stringstringstring"));
-	return (0);
-}*/
