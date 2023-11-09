@@ -45,8 +45,7 @@ static char	*range(const char *start, const char *end)
 	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	ft_strncpy(word, start, len);
-	word[len] = '\0';
+	ft_strlcpy(word, start, len);
 	return (word);
 }
 
