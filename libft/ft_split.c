@@ -45,7 +45,7 @@ static char	*range(const char *start, const char *end)
 	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
-	ft_strlcpy(word, start, len);
+	ft_strlcpy(word, start, len + 1);
 	return (word);
 }
 
@@ -83,7 +83,8 @@ static char	**split_words(char const *s, char c, char **result)
 			}
 			i++;
 		}
-		s++;
+		while (*s && *s == c)
+			s++;
 	}
 	result[i] = NULL;
 	return (result);
@@ -105,6 +106,8 @@ char	**ft_split(char const *s, char c)
 		result[0] = NULL;
 		return (result);
 	}
+	while (*s && *s == c)
+		s++;
 	return (split_words(s, c, result));
 }
 
