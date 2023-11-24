@@ -46,7 +46,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (result);
 }
 
-/*char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 
@@ -57,12 +57,12 @@ char	*ft_strjoin(const char *s1, const char *s2)
 			return ((char *)&str[i]);
 		return (NULL);
 	}
-}*/
+}
 
-int	main(void)
+/*int	main(void)
 {
 	char	str[10] = "123456789";
 
 	printf("%lld\n", ft_strlen(str));
 	return (0);
-}
+}*/
