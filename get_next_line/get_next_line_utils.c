@@ -55,8 +55,11 @@ char	*ft_strchr(const char *str, int c)
 	{
 		if ((unsigned char)str[i] == (unsigned char)c)
 			return ((char *)&str[i]);
-		return (NULL);
+		i++;
 	}
+	if ((unsigned char)str[i] == (unsigned char)c)
+		return ((char *)&str[i]);
+	return (NULL);
 }
 
 /*int	main(void)
