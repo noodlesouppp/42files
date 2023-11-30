@@ -18,7 +18,7 @@
 char	*get_next_line(int fd)
 {
 	static	node	*stash = NULL;
-	char			*line;
+	char			*line = NULL;
 	
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return (NULL);
@@ -117,6 +117,11 @@ int	main(void)
 	char	*line;
 
 	fd = open("text.txt", O_RDONLY);
+	if (fd == -1)
+	{
+    	perror("Error opening file");
+    	return (1);
+	}
 	while (1)
 	{
 		line = get_next_line(fd);
