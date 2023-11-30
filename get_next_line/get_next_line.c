@@ -20,7 +20,7 @@ char	*get_next_line(int fd)
 	static	node	*stash = NULL;
 	char			*line = NULL;
 	
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	ft_list(&stash, fd);
 	if (stash == NULL)
