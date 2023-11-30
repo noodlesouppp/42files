@@ -119,7 +119,7 @@ int	main(void)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break;
-		printf("%s, line");
+		printf("%s\n", line);
 		free(line);
 	}
 	return (0);
