@@ -9,10 +9,10 @@
 #  define BUFFER_SIZE 5
 #endif
 
-typedef struct	s_node
+typedef struct	t_node
 {
 	char			*content;
-	struct s_node	*next;
+	struct t_node	*next;
 }
 node;
 
