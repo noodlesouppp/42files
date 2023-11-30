@@ -98,13 +98,16 @@ void	ft_leftover(node **stash)
 	if (buf == NULL || clean == NULL)
 		return ;
 	end = ft_last_node(*stash);
-	while (end->content[i] != '\0' && end->content[i] != '\n')
+	while (end && end->content[i] != '\0' && end->content[i] != '\n')
 		++i;
-	while (end->content[i] != '\0')
+	while (end && end->content[i] != '\0')
 		buf[j++] = end->content[i++];
 	buf[j] = '\0';
-	end->content = buf;
-	end->next = NULL;
+	if (end)
+	{
+		end->content = buf;
+		end->next = NULL;
+	}
 	ft_dealloc(stash, clean, buf);
 }
 

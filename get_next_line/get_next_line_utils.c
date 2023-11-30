@@ -113,7 +113,9 @@ void	ft_dealloc(node **stash, node *clean, char *buf)
 		*stash = clean;
 	else
 	{
-		free(buf);
-		free(clean);
+		if (buf)
+			free(buf);
+		if (clean)
+			free(clean);
 	}
 }
