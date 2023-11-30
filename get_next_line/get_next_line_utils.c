@@ -12,60 +12,108 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strjoin(const char *s1, const char *s2)
-{
-	char	*result;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!result)
-		return (NULL);
-	while (s1[i])
-	{
-		result[j++] = s1[i++];
-	}
-	while (s2[i])
-	{
-		result[j++] = s2[i++];
-	}
-	result[j] = 0;
-	return (result);
-}
-
-char	*ft_strchr(const char *str, int c)
+int	ft_newline(node *stash)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	if (stash == NULL)
+		return (0);
+	while (stash != NULL)
 	{
-		if ((unsigned char)str[i] == (unsigned char)c)
-			return ((char *)&str[i]);
-		i++;
+		i = 0;
+		while (stash->content[i] && i < BUFFER_SIZE)
+		{
+			if (stash->content[i] == '\n')
+				return (1);
+			i++;
+		}
+		stash = stash->next;
 	}
-	if ((unsigned char)str[i] == (unsigned char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	return (0);
 }
 
-/*int	main(void)
+int	count_to_newline(node *stash)
 {
-	char	str[10] = "123456789";
+	int	i;
+	int	len;
 
-	printf("%lld\n", ft_strlen(str));
-	return (0);
-}*/
+	if (stash == NULL)
+		return (0);
+	len = 0;
+	while (stash != NULL)
+	{
+		i = 0;
+		while (stash->content[i])
+		{
+			if (stash->content[i] == '\n')
+			{
+				len++;
+				return (len);
+			}
+			i++;
+			len++;
+		}
+		stash = stash->next;
+	}
+	return (len);
+}
+
+node *ft_last_node(node *stash)
+{
+	if (stash == NULL)
+		return (NULL);
+	while (stash->next != NULL)
+		stash = stash->next;
+	return (stash);
+}
+
+void	ft_strcpy(node *stash, char *next_line)
+{
+	int	i;
+	int	j;
+	if (stash == NULL)
+		return ;
+	j = 0;
+	while (stash != NULL)
+	{
+		i = 0;
+		while (stash->content[i])
+		{
+			if (stash->content[i] == '\n')
+			{
+				next_line[j] = '\n';
+				j++;
+				next_line[j] = '\0';
+				return ;
+			}
+			next_line[j++] = stash->content[i++];
+		}
+		stash = stash->next;
+	}
+	next_line[j] = '\0';
+}
+
+void	ft_dealloc(node **stash, node *clean, char *buf)
+{
+	node	*tmp;
+
+	if (*stash == NULL)
+		return ;
+	while (*stash != NULL)
+	{
+		tmp = (*stash)->next;
+		free((*stash)->content);
+		free(*stash);
+		*stash = tmp;
+	}
+	*stash = NULL;
+	if (clean->content[0] != 0)
+		*stash = clean;
+	else
+	{
+		free(buf);
+		free(clean);
+	}
+}

@@ -18,35 +18,93 @@ char	*get_next_line(int fd)
 {
 	static	node	*stash = NULL;
 	char			*line;
-	int				read_count;
 	
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &line, 0) < 0)
 		return (NULL);
-	read_count = 1;
-	line = NULL;
-	ft_storage(fd, &stash, &read_count);
+	ft_list(&stash, fd);
 	if (stash == NULL)
 		return (NULL);
+	line = ft_line(stash);
+	ft_leftover(&stash);
 	return (line);
 }
 
-void	ft_storage(int fd, node **stash, int *read_count)
+void	ft_list(node **stash, int fd)
 {
+	int		char_read;
 	char	*buf;
 
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!buf)
-		return (NULL);
-	while ((ft_newline(*stash) == NULL) && *read_count != 0)
+	while (!ft_newline(*stash))
 	{
-		*read_count = (int)read(fd, buf, BUFFER_SIZE);
-		if ((*stash == NULL && *read_count == 0) || *read_count == -1)
+		buf = malloc(sizeof(node) * (BUFFER_SIZE + 1));
+		if (!buf)
+			return ;
+		char_read = (int)read(fd, buf, BUFFER_SIZE);
+		if (!char_read)
 		{
 			free(buf);
-			return;
+			return ;
 		}
-		buf[*read_count] = '\0';
+		buf[char_read] = '\0';
+		ft_append(stash, buf);
 	}
+}
+
+void	ft_append(node **stash, char *buf)
+{
+	node	*new;
+	node	*end;
+
+	end = ft_last_node(*stash);
+	new = malloc(sizeof(node));
+	if (new == NULL)
+		return ;
+	if (end == NULL)
+		*stash = new;
+	else
+		end->next = new;
+	new->content = buf;
+	new->next = NULL;
+}
+
+char	*ft_line(node *stash)
+{
+	int		length;
+	char	*next_line;
+
+	if (stash == NULL)
+		return (NULL);
+	length = count_to_newline(stash);
+	next_line = malloc(length + 1);
+	if (next_line == NULL)
+		return (NULL);
+	ft_strcpy(stash, next_line);
+	return (next_line);
+}
+
+void	ft_leftover(node **stash)
+{
+	node	*end;
+	node	*clean;
+	int		i;
+	int		j;
+	char	*buf;
+
+	i = 0;
+	j = 0;
+	buf = malloc(BUFFER_SIZE + 1);
+	clean = malloc(sizeof(node));
+	if (buf == NULL || clean == NULL)
+		return ;
+	end = ft_last_node(*stash);
+	while (end->content[i] != '\0' && end->content[i] != '\n')
+		++i;
+	while (end->content[i] != '\0')
+		buf[j++] = end->content[i++];
+	buf[j] = '\0';
+	end->content = buf;
+	end->next = NULL;
+	ft_dealloc(stash, clean, buf);
 }
 
 int	main(void)
