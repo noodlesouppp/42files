@@ -37,7 +37,7 @@ void	ft_list(node **stash, int fd)
 
 	while (!ft_newline(*stash))
 	{
-		buf = malloc(sizeof(node) * (BUFFER_SIZE + 1));
+		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 		if (!buf)
 			return ;
 		char_read = (int)read(fd, buf, BUFFER_SIZE);
@@ -93,7 +93,7 @@ void	ft_leftover(node **stash)
 
 	i = 0;
 	j = 0;
-	buf = malloc(BUFFER_SIZE + 1);
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	clean = malloc(sizeof(node));
 	if (buf == NULL || clean == NULL)
 		return ;
