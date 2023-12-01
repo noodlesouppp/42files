@@ -108,7 +108,7 @@ void	ft_leftover(t_node **stash)
 	ft_dealloc(stash, clean, buf);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	int	fd;
 	char	*line;
@@ -128,4 +128,4 @@ void	ft_leftover(t_node **stash)
 		free(line);
 	}
 	return (0);
-}*/
+}
