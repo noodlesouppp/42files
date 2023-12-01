@@ -17,9 +17,9 @@
 
 char	*get_next_line(int fd)
 {
-	static	node	*stash = NULL;
+	static t_node	*stash = NULL;
 	char			*line;
-	
+
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	ft_list(&stash, fd);
@@ -30,7 +30,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void	ft_list(node **stash, int fd)
+void	ft_list(t_node **stash, int fd)
 {
 	int		char_read;
 	char	*buf;
@@ -51,13 +51,13 @@ void	ft_list(node **stash, int fd)
 	}
 }
 
-void	ft_append(node **stash, char *buf)
+void	ft_append(t_node **stash, char *buf)
 {
-	node	*new;
-	node	*end;
+	t_node	*new;
+	t_node	*end;
 
-	end = ft_last_node(*stash);
-	new = malloc(sizeof(node));
+	end = ft_last_t_node(*stash);
+	new = malloc(sizeof(t_node));
 	if (new == NULL)
 		return ;
 	if (end == NULL)
@@ -68,7 +68,7 @@ void	ft_append(node **stash, char *buf)
 	new->next = NULL;
 }
 
-char	*ft_line(node *stash)
+char	*ft_line(t_node *stash)
 {
 	int		length;
 	char	*next_line;
@@ -83,10 +83,10 @@ char	*ft_line(node *stash)
 	return (next_line);
 }
 
-void	ft_leftover(node **stash)
+void	ft_leftover(t_node **stash)
 {
-	node	*end;
-	node	*clean;
+	t_node	*end;
+	t_node	*clean;
 	int		i;
 	int		j;
 	char	*buf;
@@ -94,10 +94,10 @@ void	ft_leftover(node **stash)
 	i = 0;
 	j = 0;
 	buf = malloc(BUFFER_SIZE + 1);
-	clean = malloc(sizeof(node));
+	clean = malloc(sizeof(t_node));
 	if (buf == NULL || clean == NULL)
 		return ;
-	end = ft_last_node(*stash);
+	end = ft_last_t_node(*stash);
 	while (end->content[i] && end->content[i] != '\n')
 		++i;
 	while (end->content[i] && end->content[++i])
@@ -108,7 +108,7 @@ void	ft_leftover(node **stash)
 	ft_dealloc(stash, clean, buf);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	fd;
 	char	*line;
@@ -128,4 +128,4 @@ int	main(void)
 		free(line);
 	}
 	return (0);
-}
+}*/

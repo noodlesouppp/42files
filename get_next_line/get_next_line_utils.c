@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "get_next_line.h"
 
-int	ft_newline(node *stash)
+int	ft_newline(t_node *stash)
 {
 	int	i;
 
@@ -34,7 +34,7 @@ int	ft_newline(node *stash)
 	return (0);
 }
 
-int	count_to_newline(node *stash)
+int	count_to_newline(t_node *stash)
 {
 	int	i;
 	int	len;
@@ -60,7 +60,7 @@ int	count_to_newline(node *stash)
 	return (len);
 }
 
-node *ft_last_node(node *stash)
+t_node	*ft_last_t_node(t_node *stash)
 {
 	if (stash == NULL)
 		return (NULL);
@@ -69,7 +69,7 @@ node *ft_last_node(node *stash)
 	return (stash);
 }
 
-void	ft_strcpy(node *stash, char *next_line)
+void	ft_strcpy(t_node *stash, char *next_line)
 {
 	int	i;
 	int	j;
@@ -96,9 +96,9 @@ void	ft_strcpy(node *stash, char *next_line)
 	next_line[j] = '\0';
 }
 
-void	ft_dealloc(node **stash, node *clean, char *buf)
+void	ft_dealloc(t_node **stash, t_node *clean, char *buf)
 {
-	node	*tmp;
+	t_node	*tmp;
 
 	if (*stash == NULL)
 		return ;
