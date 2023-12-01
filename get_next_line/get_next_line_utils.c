@@ -27,7 +27,7 @@ int	ft_newline(node *stash)
 		{
 			if (stash->content[i] == '\n')
 				return (1);
-			i++;
+			++i;
 		}
 		stash = stash->next;
 	}
@@ -49,7 +49,7 @@ int	count_to_newline(node *stash)
 		{
 			if (stash->content[i] == '\n')
 			{
-				len++;
+				++len;
 				return (len);
 			}
 			i++;
@@ -73,6 +73,7 @@ void	ft_strcpy(node *stash, char *next_line)
 {
 	int	i;
 	int	j;
+
 	if (stash == NULL)
 		return ;
 	j = 0;
@@ -109,7 +110,7 @@ void	ft_dealloc(node **stash, node *clean, char *buf)
 		*stash = tmp;
 	}
 	*stash = NULL;
-	if (clean->content[0] != 0)
+	if (clean->content[0])
 		*stash = clean;
 	else
 	{

@@ -18,7 +18,7 @@
 char	*get_next_line(int fd)
 {
 	static	node	*stash = NULL;
-	char			*line = NULL;
+	char			*line;
 	
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
@@ -38,7 +38,7 @@ void	ft_list(node **stash, int fd)
 	while (!ft_newline(*stash))
 	{
 		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!buf)
+		if (buf == NULL)
 			return ;
 		char_read = (int)read(fd, buf, BUFFER_SIZE);
 		if (!char_read)
@@ -93,18 +93,18 @@ void	ft_leftover(node **stash)
 
 	i = 0;
 	j = 0;
-	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	buf = malloc(BUFFER_SIZE + 1);
 	clean = malloc(sizeof(node));
 	if (buf == NULL || clean == NULL)
 		return ;
 	end = ft_last_node(*stash);
-	while (end && end->content[i] != '\0' && end->content[i] != '\n')
+	while (end->content[i] && end->content[i] != '\n')
 		++i;
-	while (end && end->content[i] != '\0')
-		buf[j++] = end->content[i++];
+	while (end->content[i] && end->content[++i])
+		buf[j++] = end->content[i];
 	buf[j] = '\0';
-	end->content = buf;
-	end->next = NULL;
+	clean->content = buf;
+	clean->next = NULL;
 	ft_dealloc(stash, clean, buf);
 }
 
