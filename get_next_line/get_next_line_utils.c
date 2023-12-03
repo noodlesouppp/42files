@@ -18,7 +18,7 @@ int	ft_newline(t_node *stash)
 {
 	int	i;
 
-	if (stash == NULL)
+	if (!stash)
 		return (0);
 	while (stash != NULL)
 	{
@@ -27,7 +27,7 @@ int	ft_newline(t_node *stash)
 		{
 			if (stash->content[i] == '\n')
 				return (1);
-			++i;
+			i++;
 		}
 		stash = stash->next;
 	}
@@ -49,7 +49,7 @@ int	count_to_newline(t_node *stash)
 		{
 			if (stash->content[i] == '\n')
 			{
-				++len;
+				len++;
 				return (len);
 			}
 			i++;
@@ -74,10 +74,10 @@ void	ft_strcpy(t_node *stash, char *next_line)
 	int	i;
 	int	j;
 
-	if (stash == NULL)
+	if (!stash)
 		return ;
 	j = 0;
-	while (stash != NULL)
+	while (stash)
 	{
 		i = 0;
 		while (stash->content[i])

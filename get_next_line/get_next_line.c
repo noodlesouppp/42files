@@ -38,7 +38,7 @@ void	ft_list(t_node **stash, int fd)
 	while (!ft_newline(*stash))
 	{
 		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (buf == NULL)
+		if (!buf)
 			return ;
 		char_read = (int)read(fd, buf, BUFFER_SIZE);
 		if (!char_read)
@@ -58,9 +58,9 @@ void	ft_append(t_node **stash, char *buf)
 
 	end = ft_last_t_node(*stash);
 	new = malloc(sizeof(t_node));
-	if (new == NULL)
+	if (!new)
 		return ;
-	if (end == NULL)
+	if (!end)
 		*stash = new;
 	else
 		end->next = new;
@@ -73,11 +73,11 @@ char	*ft_line(t_node *stash)
 	int		length;
 	char	*next_line;
 
-	if (stash == NULL)
+	if (!stash)
 		return (NULL);
 	length = count_to_newline(stash);
 	next_line = malloc(length + 1);
-	if (next_line == NULL)
+	if (!next_line)
 		return (NULL);
 	ft_strcpy(stash, next_line);
 	return (next_line);
@@ -93,7 +93,7 @@ void	ft_leftover(t_node **stash)
 
 	i = 0;
 	j = 0;
-	buf = malloc(BUFFER_SIZE + 1);
+	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
 	clean = malloc(sizeof(t_node));
 	if (buf == NULL || clean == NULL)
 		return ;
