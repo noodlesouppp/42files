@@ -41,7 +41,7 @@ void	ft_list(t_node **stash, int fd)
 		if (!buf)
 			return ;
 		char_read = (int)read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buf);
 			return ;
@@ -93,7 +93,7 @@ void	ft_leftover(t_node **stash)
 
 	i = 0;
 	j = 0;
-	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	clean = malloc(sizeof(t_node));
 	if (buf == NULL || clean == NULL)
 		return ;
