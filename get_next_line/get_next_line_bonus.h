@@ -29,7 +29,7 @@ typedef struct t_node
 
 char	*get_next_line(int fd);
 void	ft_list(t_node **stash, int fd);
-void	ft_append(t_node **stash, char *buf);
+void	ft_append(t_node **stash, char *buf, int fd);
 char	*ft_line(t_node *stash);
 void	ft_leftover(t_node **stash);
 int		ft_newline(t_node *stash);
