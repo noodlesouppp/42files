@@ -17,16 +17,16 @@
 
 char	*get_next_line(int fd)
 {
-	static t_node	*stash = NULL;
+	static t_node	*stash[4096];
 	char			*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > 4095 || BUFFER_SIZE <= 0)
 		return (NULL);
-	ft_list(&stash, fd);
-	if (stash == NULL)
+	ft_list(stash, fd);
+	if (stash[fd] == NULL)
 		return (NULL);
-	line = ft_line(stash);
-	ft_leftover(&stash);
+	line = ft_line(stash[fd]);
+	ft_leftover(&stash[fd]);
 	return (line);
 }
 
@@ -35,33 +35,33 @@ void	ft_list(t_node **stash, int fd)
 	int		char_read;
 	char	*buf;
 
-	while (!ft_newline(*stash))
+	while (!ft_newline(stash[fd]))
 	{
 		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (buf == NULL)
+		if (!buf)
 			return ;
 		char_read = (int)read(fd, buf, BUFFER_SIZE);
-		if (!char_read)
+		if (char_read <= 0)
 		{
 			free(buf);
 			return ;
 		}
 		buf[char_read] = '\0';
-		ft_append(stash, buf);
+		ft_append(stash, buf, fd);
 	}
 }
 
-void	ft_append(t_node **stash, char *buf)
+void	ft_append(t_node **stash, char *buf, int fd)
 {
 	t_node	*new;
 	t_node	*end;
 
-	end = ft_last_t_node(*stash);
+	end = ft_last_t_node(stash[fd]);
 	new = malloc(sizeof(t_node));
-	if (new == NULL)
+	if (!new)
 		return ;
-	if (end == NULL)
-		*stash = new;
+	if (!end)
+		stash[fd] = new;
 	else
 		end->next = new;
 	new->content = buf;
@@ -73,11 +73,11 @@ char	*ft_line(t_node *stash)
 	int		length;
 	char	*next_line;
 
-	if (stash == NULL)
+	if (!stash)
 		return (NULL);
 	length = count_to_newline(stash);
 	next_line = malloc(length + 1);
-	if (next_line == NULL)
+	if (!next_line)
 		return (NULL);
 	ft_strcpy(stash, next_line);
 	return (next_line);
@@ -93,7 +93,7 @@ void	ft_leftover(t_node **stash)
 
 	i = 0;
 	j = 0;
-	buf = malloc(BUFFER_SIZE + 1);
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	clean = malloc(sizeof(t_node));
 	if (buf == NULL || clean == NULL)
 		return ;
@@ -108,7 +108,7 @@ void	ft_leftover(t_node **stash)
 	ft_dealloc(stash, clean, buf);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	fd;
 	char	*line;
@@ -128,4 +128,4 @@ int	main(void)
 		free(line);
 	}
 	return (0);
-}
+}*/
