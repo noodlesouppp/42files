@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:20:42 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/22 17:48:11 by yousong          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:58:50 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_newline(t_node *stash)
 {

@@ -6,12 +6,10 @@
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 18:20:42 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/22 17:48:11 by yousong          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:57:21 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "get_next_line.h"
 
 int	ft_newline(t_node *stash)

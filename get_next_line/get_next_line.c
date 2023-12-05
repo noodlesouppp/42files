@@ -6,13 +6,10 @@
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 17:12:46 by yousong           #+#    #+#             */
-/*   Updated: 2023/11/17 21:54:18 by yousong          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:56:56 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
