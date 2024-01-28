@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/10/31 16:13:55 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/02 13:47:42 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+/*#include <stdio.h>
+#include <strings.h>
+#include <string.h>*/
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+void	ft_bzero(void *str, size_t n)
 {
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	ft_memset(str, 0, n);
 }
+
+/*int	main(void)
+{
+	char	str[50] = "PLEASE DONT REMOVE ME";
+	char	str2[50] = "PLEASe DONT REMOVE ME";
+
+	printf("%s\n", str);
+	bzero(str, 6);
+	printf("%s\n", str);
+	printf("%s\n", str2);
+	ft_bzero(str2, 6);
+	printf("%s\n", str2);
+}*/

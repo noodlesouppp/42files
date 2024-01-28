@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/08 08:18:00 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/08 18:30:06 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+/*void	ft_one(unsigned int n, char *c)
 {
-	int	len;
+	*c = *c + n;
+}*/
 
-	len = 0;
-	while (num != 0)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		len++;
-		num = num / 10;
+		f(i, &s[i]);
+		i++;
 	}
-	return (len);
 }
+
+/*int   main(void)
+{
+        char    s[] = "abcABC";
+
+	ft_striteri(s, ft_one);
+	printf("%s\n", s);
+        return (0);
+}*/

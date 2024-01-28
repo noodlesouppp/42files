@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/06 16:21:53 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/06 16:56:03 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+int	ft_tolower(int c)
 {
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	if ('A' <= c && c <= 'Z')
+		c = c + 32;
+	return (c);
 }
+
+/*int   main(void)
+{
+        char    c = 'W';
+
+        printf("%c\n", c);
+        printf("%c\n", ft_tolower(c));
+        return (0);
+}*/

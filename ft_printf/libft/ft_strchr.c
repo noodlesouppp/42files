@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/06 16:57:07 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/06 17:18:54 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+char	*ft_strchr(const char *str, int c)
 {
-	int	len;
+	int	i;
 
-	len = 0;
-	while (num != 0)
+	i = 0;
+	while (str[i])
 	{
-		len++;
-		num = num / 10;
+		if ((unsigned char)str[i] == (unsigned char)c)
+			return ((char *)&str[i]);
+		i++;
 	}
-	return (len);
+	if ((unsigned char)str[i] == (unsigned char)c)
+		return ((char *)&str[i]);
+	return (NULL);
 }
+
+/*int	main(void)
+{
+	char	str[20] = "LLLLLLLLLWLLLLL";
+
+	printf("%s\n", ft_strchr(str, 'D'));
+	return (0);
+}*/

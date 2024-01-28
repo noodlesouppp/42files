@@ -10,4 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
+//#include "ft_printf.h"
+
+int	ft_print_ptr(unsigned long long ptr)
+{
+	int	print_length;
+}

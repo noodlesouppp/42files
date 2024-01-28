@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/07 21:35:59 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/07 22:26:40 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <stdio.h>
+//#include <string.h>
 #include <stdlib.h>
-//#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+char	*ft_strdup(const char *s1)
 {
-	int	len;
+	char	*new;
+	size_t	i;
 
-	len = 0;
-	while (num != 0)
+	i = 0;
+	new = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!new)
+		return (NULL);
+	while (s1[i])
 	{
-		len++;
-		num = num / 10;
+		new[i] = s1[i];
+		i++;
 	}
-	return (len);
+	new[i] = '\0';
+	return (new);
 }
+
+/*int	main(void)
+{
+	printf("%s\n", ft_strdup("print me PLEASE"));
+	printf("%s\n", strdup("hope this works"));
+	return (0);
+}*/

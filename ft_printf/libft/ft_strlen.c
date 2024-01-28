@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/10/31 12:25:57 by yousong           #+#    #+#             */
+/*   Updated: 2023/10/31 12:46:21 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+/*#include <stdio.h>
+#include <string.h>*/
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+size_t	ft_strlen(const char *str)
 {
-	int	len;
+	size_t	i;
 
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
+
+/*int	main(void)
+{
+	printf("%d", ft_strlen("stringstringstring"));
+	printf("\n%zu", strlen("stringstringstring"));
+	return (0);
+}*/

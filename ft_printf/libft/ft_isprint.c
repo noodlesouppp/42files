@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/10/30 18:12:23 by yousong           #+#    #+#             */
+/*   Updated: 2023/10/30 18:24:22 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+int	ft_isprint(int i)
 {
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	if (i >= 32 && i <= 126)
+		return (1);
+	return (0);
 }
+
+/*int	main(void)
+{
+	printf("%d", ft_isprint(32));
+	printf("\n%d", ft_isprint(127));
+	return (0);
+}*/

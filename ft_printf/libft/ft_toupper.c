@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/06 16:13:04 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/06 16:21:12 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+//#include <stdio.h>
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+int	ft_toupper(int c)
 {
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 10;
-	}
-	return (len);
+	if ('a' <= c && c <= 'z')
+		c = c - 32;
+	return (c);
 }
+
+/*int	main(void)
+{
+	char	c = 'z';
+
+	printf("%c\n", c);
+	printf("%c\n", ft_toupper(c));
+	return (0);
+}*/

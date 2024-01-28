@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 21:24:57 by yousong           #+#    #+#             */
-/*   Updated: 2024/01/17 21:25:05 by yousong          ###   ########.fr       */
+/*   Created: 2023/11/09 05:56:03 by yousong           #+#    #+#             */
+/*   Updated: 2023/11/09 05:57:44 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-//#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_num_len(unsigned int num)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	len;
+	int	i;
 
-	len = 0;
-	while (num != 0)
+	i = 0;
+	while (s[i])
 	{
-		len++;
-		num = num / 10;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (len);
+	write(fd, "\n", 1);
 }
