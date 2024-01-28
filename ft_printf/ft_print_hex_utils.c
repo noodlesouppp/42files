@@ -43,7 +43,7 @@ void	ft_put_hex(unsigned int num, const char specifier)
 	}
 }
 
-int	ft_hex_len(unsigned int	num)
+int	ft_hex_len(unsigned int num)
 {
 	int	len;
 
