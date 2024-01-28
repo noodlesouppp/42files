@@ -13,7 +13,7 @@
 //#include "ft_printf.h"
 //#include "libft.h"
 
-int	ft_print_hex(unsigned int num, const char specifier)
+int	ft_printhex(unsigned int num, const char specifier)
 {
 	if (num == 0)
 		return (write(1, "0", 1));

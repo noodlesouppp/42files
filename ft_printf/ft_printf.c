@@ -32,7 +32,7 @@ int	ft_format(va_list ap, const char specifier)
 	else if (specifier == 's')
 		count += ft_printstr(va_arg(ap, char *));
 	else if (specifier == 'p')
-		count += ft_printptr(va_arg(ap, unsigned long long));
+		count += ft_printptr(va_arg(ap, unsigned long));
 	else if (specifier == 'd' || specifier == 'i')
 		count += ft_printnbr(va_arg(ap, int));
 	else if (specifier == 'u')
