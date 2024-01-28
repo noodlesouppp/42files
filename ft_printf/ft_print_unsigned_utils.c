@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-//#include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_printunsigned(unsigned int n)
 {
@@ -40,7 +40,7 @@ char	*ft_uitoa(unsigned int n)
 	if (!num)
 		return (0);
 	num[len] = '\0';
-	while (!n)
+	while (n)
 	{
 		num[len - 1] = (n % 10) + 48;
 		n = n / 10;
@@ -54,7 +54,7 @@ int	ft_num_len(unsigned int n)
 	int	num_length;
 
 	num_length = 0;
-	while (!n)
+	while (n)
 	{
 		num_length++;
 		n = n / 10;

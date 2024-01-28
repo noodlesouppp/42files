@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "ft_printf.h"
-//#include "libft.h"
+#include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_printhex(unsigned int num, const char specifier)
 {

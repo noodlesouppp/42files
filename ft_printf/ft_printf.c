@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-//#include "ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_printchar(int c)
 {
@@ -61,17 +61,17 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			count += ft_putchar(str[i]);
+			count += ft_printchar(str[i]);
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	count;
 
 	count = ft_printf("Hello %s\n", "there");
 	ft_printf("The chars written are %d\n", count);
-}
+}*/
