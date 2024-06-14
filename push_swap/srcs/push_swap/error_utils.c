@@ -6,13 +6,13 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 01:37:26 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/12 04:16:28 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 04:52:59 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	error_syntax(char *str)
+int	error_syntax(char *str)
 {
 	if (!(*str == '-'
 			|| *str == '+'
@@ -30,7 +30,7 @@ void	error_syntax(char *str)
 	return (0);
 }
 
-void	is_duplicate(t_stack_node *a, int n)
+int	is_duplicate(t_stack_node *a, int n)
 {
 	if (!a)
 		return (0);

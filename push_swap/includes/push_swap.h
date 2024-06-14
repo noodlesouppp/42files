@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:33:01 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/05 18:15:30 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 05:08:18 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,36 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print);
 void	rra(t_stack_node **a, bool print);
 void	rrb(t_stack_node **b, bool print);
 void	rrr(t_stack_node **a, t_stack_node **b, bool print);
+
+/* Sorting */
+void			small_sort(t_stack_node **a);
+void			big_sort(t_stack_node **a, t_stack_node **b);
+
+/* Stack */
+t_stack_node	*get_cheapest(t_stack_node *a);
+void			set_cheapest(t_stack_node *a);
+t_stack_node	*find_min(t_stack_node *stack);
+t_stack_node	*find_max(t_stack_node *stack);
+t_stack_node	*find_last(t_stack_node *stack);
+
+/* Initiation */
+void			set_index(t_stack_node *node);
+void			init_nodes_a(t_stack_node *a, t_stack_node *b);
+void			init_nodes_b(t_stack_node *a, t_stack_node *b);
+void			init_stack_a(t_stack_node **a, char **argv);
+
+/* Utils */
+int				stack_size(t_stack_node *stack);
+char			**split(char *s, char c);
+void			equalise_stack(t_stack_node **stack, t_stack_node *node, char stack_specifier);
+void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+bool			is_sorted(t_stack_node *stack);
+
+/* Errors */
+int				error_syntax(char *str);
+int				is_duplicate(t_stack_node *a, int n);
+void			free_stack(t_stack_node **a);
+void			free_errors(t_stack_node **a);
 
 #endif
