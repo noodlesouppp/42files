@@ -2,7 +2,7 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 SRC_DIR = srcs
 COMMANDS_DIR = $(SRC_DIR)/commands

@@ -106,7 +106,7 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b)
 {
 	set_index(a);
 	set_index(b);
-	set_target_node(a, b);
+	set_target_a(a, b);
 	calculate_cost(a, b);
 	set_cheapest(a);
 }

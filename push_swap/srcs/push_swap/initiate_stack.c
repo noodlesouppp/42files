@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-static long	atol(const char *str)
+static long	ft_atol(const char *str)
 {
 	long	n;
 	int		sign;
@@ -70,7 +70,7 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	{
 		if (error_syntax(argv[i]))
 			free_errors(a);
-		n = atol(argv[i]);
+		n = ft_atol(argv[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			free_errors(a);
 		if (is_duplicate(*a, (int)n))

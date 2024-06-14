@@ -66,6 +66,6 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 		init_nodes_b(*a, *b);
 		move_b_to_a(a, b);
 	}
-	current_index(*a);
+	set_index(*a);
 	min_on_top(a);
 }

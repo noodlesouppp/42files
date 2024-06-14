@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include <unistd.h>
 
 typedef struct s_stack_node
 {
@@ -63,10 +63,12 @@ void			init_stack_a(t_stack_node **a, char **argv);
 /* Utils */
 int				stack_size(t_stack_node *stack);
 char			**split(char *s, char c);
+void			min_on_top(t_stack_node **a);
 void			equalise_stack(t_stack_node **stack, t_stack_node *node, char stack_specifier);
 void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
 void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
 bool			is_sorted(t_stack_node *stack);
+
 
 /* Errors */
 int				error_syntax(char *str);

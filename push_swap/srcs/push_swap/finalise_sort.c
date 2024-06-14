@@ -12,26 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-t_stack_node	*find_min(t_stack_node *stack)
-{
-	long			min;
-	t_stack_node	*min_node;
-
-	if (!stack)
-		return (NULL);
-	min = LONG_MAX;
-	while (stack)
-	{
-		if (stack->num < min)
-		{
-			min = stack->num;
-			min_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (min_node);
-}
-
 static void	set_target_b(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_a;
@@ -67,7 +47,7 @@ void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 	set_target_b(a, b);
 }
 
-static void	min_on_top(t_stack_node **a)
+void	min_on_top(t_stack_node **a)
 {
 	while ((*a)->num != find_min(*a)->num)
 	{
