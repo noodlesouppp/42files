@@ -6,13 +6,13 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 01:37:26 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 09:44:05 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 10:26:52 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	free_split(char **argv)
+void	free_split(char **argv)
 {
 	int	i;
 

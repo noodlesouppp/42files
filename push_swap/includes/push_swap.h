@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:33:01 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 09:46:08 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 10:26:48 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ bool			is_sorted(t_stack_node *stack);
 int				error_syntax(char *str);
 int				is_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **a);
-void			free_errors(t_stack_node **a);
+void			free_errors(t_stack_node **a, char **argv, bool split_flag);
+void			free_split(char **argv);
 
 #endif
