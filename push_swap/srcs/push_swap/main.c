@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:22:33 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 09:47:16 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 22:06:46 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		write(2, "Error\n", 6);
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
