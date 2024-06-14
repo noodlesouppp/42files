@@ -6,13 +6,13 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:24:49 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/12 04:10:57 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 07:10:34 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	push(t_stack_node **s, t_stack_node **d)
+static void	push(t_stack_node **d, t_stack_node **s)
 {
 	t_stack_node	*push_node;
 
@@ -38,14 +38,14 @@ static void	push(t_stack_node **s, t_stack_node **d)
 
 void	pa(t_stack_node **a, t_stack_node **b, bool print)
 {
-	push(b, a);
+	push(a, b);
 	if (!print)
 		write(1, "pa\n", 3);
 }
 
-void	pb(t_stack_node **a, t_stack_node **b, bool print)
+void	pb(t_stack_node **b, t_stack_node **a, bool print)
 {
-	push(a, b);
+	push(b, a);
 	if (!print)
 		write(1, "pb\n", 3);
 }
