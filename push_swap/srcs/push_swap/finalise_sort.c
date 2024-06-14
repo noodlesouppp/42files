@@ -33,7 +33,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 			current_a = current_a->next;
 		}
 		if (closest_match == LONG_MAX)
-			target_node = find_min(a);
+			b->target = find_min(a);
 		else
 			b->target = target_node;
 		b = b->next;
@@ -52,8 +52,8 @@ void	min_on_top(t_stack_node **a)
 	while ((*a)->num != find_min(*a)->num)
 	{
 		if (find_min(*a)->above_median)
-			ra(a, true);
+			ra(a, false);
 		else
-			rra(a, true);
+			rra(a, false);
 	}
 }

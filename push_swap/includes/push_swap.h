@@ -35,7 +35,7 @@ void	sa(t_stack_node **a, bool print);
 void	sb(t_stack_node **b, bool print);
 void	ss(t_stack_node **a, t_stack_node **b, bool print);
 void	pa(t_stack_node **a, t_stack_node **b, bool print);
-void	pb(t_stack_node **a, t_stack_node **b, bool print);
+void	pb(t_stack_node **b, t_stack_node **a, bool print);
 void	ra(t_stack_node **a, bool print);
 void	rb(t_stack_node **b, bool print);
 void	rr(t_stack_node **a, t_stack_node **b, bool print);

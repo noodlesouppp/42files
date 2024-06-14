@@ -14,12 +14,12 @@
 
 void	small_sort(t_stack_node **a)
 {
-	t_stack_node	*first;
+	t_stack_node	*biggest;
 
-	first = find_max(*a);
-	if (first == *a)
+	biggest = find_max(*a);
+	if (biggest == *a)
 		ra(a, false);
-	else if ((*a)->next == first)
+	else if ((*a)->next == biggest)
 		rra(a, false);
 	if ((*a)->num > (*a)->next->num)
 		sa(a, false);

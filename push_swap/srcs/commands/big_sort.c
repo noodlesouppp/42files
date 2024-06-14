@@ -24,7 +24,7 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 		rev_rotate_both(a, b, cheapest);
 	equalise_stack(a, cheapest, 'a');
 	equalise_stack(b, cheapest->target, 'b');
-	pb(a, b, false);
+	pb(b, a, false);
 }
 
 static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
@@ -52,9 +52,9 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 
 	len = stack_size(*a);
 	if (len-- > 3 && !is_sorted(*a))
-		pb(a, b, false);
+		pb(b, a, false);
 	if (len-- > 3 && !is_sorted(*a))
-		pb(a, b, false);
+		pb(b, a, false);
 	while(len-- > 3 && !is_sorted(*a))
 	{
 		init_nodes_a(*a, *b);
