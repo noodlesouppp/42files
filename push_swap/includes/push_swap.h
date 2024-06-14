@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:33:01 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 05:08:18 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 09:46:08 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_stack_node	*find_last(t_stack_node *stack);
 void			set_index(t_stack_node *node);
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
-void			init_stack_a(t_stack_node **a, char **argv);
+void			init_stack_a(t_stack_node **a, char **argv, bool split_flag);
 
 /* Utils */
 int				stack_size(t_stack_node *stack);

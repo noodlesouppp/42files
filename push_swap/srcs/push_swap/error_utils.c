@@ -6,11 +6,23 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 01:37:26 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 09:21:34 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 09:44:05 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	free_split(char **argv)
+{
+	int	i;
+
+	i = -1;
+	if (argv == NULL || *argv == NULL)
+		return ;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv - 1);
+}
 
 int	error_syntax(char *str)
 {
@@ -63,9 +75,11 @@ void	free_stack(t_stack_node **a)
 	*a = NULL;
 }
 
-void	free_errors(t_stack_node **a)
+void	free_errors(t_stack_node **a, char **argv, bool split_flag)
 {
 	free_stack(a);
+	if (split_flag)
+		free_split(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }

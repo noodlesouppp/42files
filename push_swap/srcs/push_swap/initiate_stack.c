@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:50:17 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 04:53:05 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 09:47:23 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack_node **a, char **argv)
+void	init_stack_a(t_stack_node **a, char **argv, bool split_flag)
 {
 	int		i;
 	long	n;
@@ -69,13 +69,15 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_errors(a, argv, split_flag);
 		n = ft_atol(argv[i]);
 		if (n < INT_MIN || n > INT_MAX)
-			free_errors(a);
+			free_errors(a, argv, split_flag);
 		if (is_duplicate(*a, (int)n))
-			free_errors(a);
+			free_errors(a, argv, split_flag);
 		append_node(a, (int)n);
 		i++;
 	}
+	if (split_flag)
+		free_split(argv);
 }

@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:22:33 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 09:35:43 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 09:47:16 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 	else if (argc == 2)
 		argv = split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
+	init_stack_a(&a, argv + 1, argc == 2);
 	if (!is_sorted(a))
 	{
 		if (stack_size(a) == 2)
