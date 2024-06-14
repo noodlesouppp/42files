@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 22:59:36 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/12 04:11:34 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/14 07:20:49 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	rotate(t_stack_node **top_node)
 		return ;
 	last_node = find_last(*top_node);
 	last_node->next = *top_node;
-	(*top_node)->prev = last_node;
 	*top_node = (*top_node)->next;
-	(*top_node)->prev->next = NULL;
 	(*top_node)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
 void	ra(t_stack_node **a, bool print)
