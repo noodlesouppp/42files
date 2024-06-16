@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 22:33:01 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 10:26:48 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:33:17 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ typedef struct s_stack_node
 }				t_stack_node;
 
 /* Commands */
-void	sa(t_stack_node **a, bool print);
-void	sb(t_stack_node **b, bool print);
-void	ss(t_stack_node **a, t_stack_node **b, bool print);
-void	pa(t_stack_node **a, t_stack_node **b, bool print);
-void	pb(t_stack_node **b, t_stack_node **a, bool print);
-void	ra(t_stack_node **a, bool print);
-void	rb(t_stack_node **b, bool print);
-void	rr(t_stack_node **a, t_stack_node **b, bool print);
-void	rra(t_stack_node **a, bool print);
-void	rrb(t_stack_node **b, bool print);
-void	rrr(t_stack_node **a, t_stack_node **b, bool print);
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **b, t_stack_node **a, bool print);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 /* Sorting */
 void			small_sort(t_stack_node **a);
@@ -64,11 +64,10 @@ void			init_stack_a(t_stack_node **a, char **argv, bool split_flag);
 int				stack_size(t_stack_node *stack);
 char			**split(char *s, char c);
 void			min_on_top(t_stack_node **a);
-void			equalise_stack(t_stack_node **stack, t_stack_node *node, char stack_specifier);
-void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
-void			rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest);
+void			equalise_stack(t_stack_node **s, t_stack_node *n, char c);
+void			rot_both(t_stack_node **a, t_stack_node **b, t_stack_node *c);
+void			r_rot_both(t_stack_node **a, t_stack_node **b, t_stack_node *c);
 bool			is_sorted(t_stack_node *stack);
-
 
 /* Errors */
 int				error_syntax(char *str);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inititiate_sort.c                                  :+:      :+:    :+:   */
+/*   initiate_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:35:18 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 02:47:50 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:35:12 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	set_cheapest(t_stack_node *a)
 		a = a->next;
 	}
 	if (cheapest_node)
-	cheapest_node->is_cheapest = true;
+		cheapest_node->is_cheapest = true;
 }
 
 static void	calculate_cost(t_stack_node *a, t_stack_node *b)
@@ -59,11 +59,11 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*target_node;
 	long			closest_match;
 
-	while(a)
+	while (a)
 	{
 		closest_match = LONG_MIN;
 		current_b = b;
-		while(current_b)
+		while (current_b)
 		{
 			if (current_b->num < a->num
 				&& current_b->num > closest_match)

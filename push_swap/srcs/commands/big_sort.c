@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:04:23 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 04:01:30 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:38:11 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	big_sort(t_stack_node **a, t_stack_node **b)
 		pb(b, a, false);
 	if (len-- > 3 && !is_sorted(*a))
 		pb(b, a, false);
-	while(len-- > 3 && !is_sorted(*a))
+	while (len-- > 3 && !is_sorted(*a))
 	{
 		init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
 	}
 	small_sort(a);
-	while(*b)
+	while (*b)
 	{
 		init_nodes_b(*a, *b);
 		move_b_to_a(a, b);

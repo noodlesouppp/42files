@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:03:25 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 23:19:59 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:36:12 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static int	count_words(char *s, char c)
 	while (*s)
 	{
 		lever = 0;
-		while(*s == c && *s)
+		while (*s == c && *s)
 			s++;
-		while(*s != c && *s)
+		while (*s != c && *s)
 		{
 			if (!lever)
 			{
 				count++;
 				lever = 1;
 			}
-		s++;
+			s++;
 		}
 	}
 	return (count);
@@ -49,7 +49,7 @@ static char	*get_next_word(char *s, char c)
 		cursor++;
 	while (s[cursor + len] != c && s[cursor + len])
 		len++;
-	word = malloc((size_t)len * sizeof(char)+ 1);
+	word = malloc((size_t)len * sizeof(char) + 1);
 	if (!word)
 		return (NULL);
 	while ((s[cursor] != c) && s[cursor])
@@ -81,7 +81,7 @@ char	**split(char *s, char c)
 			tab[i++][0] = '\0';
 			continue ;
 		}
-			tab[i++] = get_next_word(s, c);
+		tab[i++] = get_next_word(s, c);
 	}
 	tab[i] = NULL;
 	return (tab);

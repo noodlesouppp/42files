@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 10:47:00 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 05:04:55 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:34:07 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	set_target_b(t_stack_node *a, t_stack_node *b)
 	t_stack_node	*target_node;
 	long			closest_match;
 
-	while(b)
+	while (b)
 	{
 		closest_match = LONG_MAX;
 		current_a = a;

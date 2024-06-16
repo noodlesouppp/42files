@@ -6,24 +6,24 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 03:08:20 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/14 03:42:56 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/16 23:37:52 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	equalise_stack(t_stack_node **stack, t_stack_node *node, char stack_specifier)
+void	equalise_stack(t_stack_node **stack, t_stack_node *node, char specifier)
 {
-	while(*stack != node)
+	while (*stack != node)
 	{
-		if (stack_specifier == 'a')
+		if (specifier == 'a')
 		{
 			if (node->above_median)
 				ra(stack, false);
 			else
 				rra(stack, false);
 		}
-		else if (stack_specifier == 'b')
+		else if (specifier == 'b')
 		{
 			if (node->above_median)
 				rb(stack, false);
@@ -33,7 +33,7 @@ void	equalise_stack(t_stack_node **stack, t_stack_node *node, char stack_specifi
 	}
 }
 
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+void	rot_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
 	while (*a != cheapest && *b != cheapest->target)
 		rr(a, b, false);
@@ -41,7 +41,7 @@ void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 	set_index(*b);
 }
 
-void	rev_rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
+void	r_rot_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest)
 {
 	while (*a != cheapest && *b != cheapest->target)
 		rrr(a, b, false);
