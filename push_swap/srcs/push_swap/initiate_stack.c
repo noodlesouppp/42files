@@ -6,11 +6,23 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:50:17 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/17 05:10:11 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 05:50:41 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static int	error_too_long(const char *str)
+{
+	int	length;
+
+	length = 0;
+	while (str[length])
+		length++;
+	if (length > 11)
+		return (1);
+	return (0);
+}
 
 static long	ft_atol(const char *str)
 {
@@ -70,6 +82,8 @@ void	init_stack_a(t_stack_node **a, char **argv, bool split_flag)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
+			free_errors(a, argv, split_flag);
+		if (error_too_long(argv[i]))
 			free_errors(a, argv, split_flag);
 		n = ft_atol(argv[i]);
 		if (n < INT_MIN || n > INT_MAX)
