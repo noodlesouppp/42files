@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 21:35:18 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/16 23:35:12 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 07:00:01 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	set_index(t_stack_node *node)
 	while (node)
 	{
 		node->index = i;
-		if (i < median)
+		if (i <= median)
 			node->above_median = true;
 		else
 			node->above_median = false;
