@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:04:23 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/16 23:38:11 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 00:34:36 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 
 	cheapest = get_cheapest(*a);
 	if (cheapest->above_median && cheapest->target->above_median)
-		rotate_both(a, b, cheapest);
+		rot_both(a, b, cheapest);
 	else if (!(cheapest->above_median)
 		&& !(cheapest->target->above_median))
-		rev_rotate_both(a, b, cheapest);
+		r_rot_both(a, b, cheapest);
 	equalise_stack(a, cheapest, 'a');
 	equalise_stack(b, cheapest->target, 'b');
 	pb(b, a, false);

@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 12:03:25 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/16 23:36:12 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 00:36:44 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static int	count_words(char *s, char c)
 			s++;
 		}
 	}
+	if (count == 0)
+		write(2, "Error\n", 6);
 	return (count);
 }
 

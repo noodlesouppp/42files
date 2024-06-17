@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 01:37:26 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/16 23:33:49 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 01:19:58 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_split(char **argv)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	if (argv == NULL || *argv == NULL)
