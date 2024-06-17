@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 16:50:17 by yousong           #+#    #+#             */
-/*   Updated: 2024/06/17 03:04:08 by yousong          ###   ########.fr       */
+/*   Updated: 2024/06/17 05:10:11 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	append_node(t_stack_node **stack, int n)
 		return ;
 	node->next = NULL;
 	node->num = n;
-    node->is_cheapest = false;
+	node->is_cheapest = false;
 	if (!*stack)
 	{
 		*stack = node;
