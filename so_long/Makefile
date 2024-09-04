@@ -6,13 +6,13 @@
 #    By: yousong <yousong@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/27 03:24:09 by yousong           #+#    #+#              #
-#    Updated: 2024/09/04 14:24:35 by yousong          ###   ########.fr        #
+#    Updated: 2024/09/04 15:21:00 by yousong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-CC = gcc
+CC = gcc -g
 
 CFLAGS = -Wall -Wextra -Werror
 

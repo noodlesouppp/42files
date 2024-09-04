@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 23:14:58 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:47:47 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 15:54:08 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,23 @@ void	check_map(t_game *game)
 		print_error("Map is not rectangular!\n", game);
 	check_walls(game);
 	check_params(game);
+	check_characters(game);
 	if (check_valid_path(game) == 0)
 		print_error("Map has no valid path!\n", game);
+}
+
+void	check_characters(t_game *game)
+{
+	int		i;
+	char	*valid_chars;
+
+	i = 0;
+	valid_chars = "01CEP";
+	while (i < ft_strlen(game->str_line))
+	{
+		if (!ft_strchr(valid_chars, game->str_line[i]))
+			print_error("Invalid characters in map!\n", game);
+		i++;
+	}
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:34:29 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:53:24 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 16:06:47 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # include <stdbool.h>
 # include <fcntl.h>
 
-# define X_EVENT_KEY_PRESS		2
-# define X_EVENT_KEY_RELEASE	3
-
-# define X_EVENT_KEY_EXIT		17
 # define KEY_ESC				65307
 # define KEY_W					119
 # define KEY_A					97
@@ -66,6 +62,7 @@ void	set_image(t_game *game);
 void	read_map(char *filename, t_game *game);
 void	check_walls(t_game *game);
 void	check_params(t_game *game);
+void	check_characters(t_game *game);
 void	check_map(t_game *game);
 
 void	flood_fill(t_game *game, int x, int y);

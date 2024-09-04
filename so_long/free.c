@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:25:19 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:43:43 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 15:20:33 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	free_all_data(t_game *game)
 {
 	free_images(game);
-	mlx_destroy_window(game->mlx, game->mlx_win);
-	mlx_destroy_display(game->mlx);
+	if (game->mlx_win)
+		mlx_destroy_window(game->mlx, game->mlx_win);
+	if (game->mlx)
+		mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free(game->str_line);
 	free(game);

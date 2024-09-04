@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:31:22 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:52:45 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 16:07:24 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	print_error(char *message, t_game *game)
 {
 	write(2, "Error\n", 6);
 	write(2, message, ft_strlen(message));
-	free_all_data(game);
 	exit(1);
 }
 
@@ -55,13 +54,10 @@ int	ft_close_game(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	*nami;
+	int		map_param_len;
 
 	if (argc != 2)
-	{
-		write(1, "Error\n", 6);
-		write(1, "No map detected.\n", 17);
-		exit(1);
-	}
+		print_error("No map detected.\n", NULL);
 	nami = malloc(sizeof(t_game));
 	if (!nami)
 	{
@@ -69,9 +65,12 @@ int	main(int argc, char **argv)
 		write(2, "Memory allocation failed\n", 25);
 		exit(1);
 	}
+	map_param_len = ft_strlen(argv[1]);
+	if (!ft_strnstr(&argv[1][map_param_len - 4], ".ber", 4))
+		print_error("Map file must be a .ber file.\n", nami);
 	game_init(nami, argv[1]);
 	mlx_hook(nami->mlx_win, KeyPress, KeyPressMask, &handle_input, nami);
-	mlx_hook(nami->mlx_win, X_EVENT_KEY_EXIT, 0, &handle_input, nami);
+	mlx_hook(nami->mlx_win, DestroyNotify, 0, &ft_close_game, nami);
 	mlx_loop(nami->mlx);
 	free_all_data(nami);
 	return (0);
