@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:34:29 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 12:43:32 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:53:24 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 # define KEY_D					100
 
 typedef struct s_img {
-	void *nami;
-	void *collect;
-	void *land;
-	void *exit1;
-	void *exit2;
-	void *wall;
+	void	*nami;
+	void	*collect;
+	void	*land;
+	void	*exit1;
+	void	*exit2;
+	void	*wall;
 }				t_img;
 
 typedef struct s_game {
@@ -68,7 +68,7 @@ void	check_walls(t_game *game);
 void	check_params(t_game *game);
 void	check_map(t_game *game);
 
-void 	flood_fill(t_game *game, int x, int y);
+void	flood_fill(t_game *game, int x, int y);
 int		check_valid_path(t_game *game);
 
 char	*ft_strdup_without_nl(char *s);

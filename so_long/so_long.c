@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:31:22 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 13:14:28 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:52:45 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	game_init(t_game *game, char *map)
 	game->img = img_init(game->mlx);
 	read_map(map, game);
 	check_map(game);
-	game->mlx_win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, "so_long");
+	game->mlx_win = mlx_new_window(game->mlx,
+			game->width * 64, game->height * 64, "so_long");
 	set_image(game);
 }
 
@@ -42,7 +43,7 @@ int	handle_input(int keysym, t_game *game)
 		move_s(game);
 	if (keysym == KEY_D)
 		move_d(game);
-	return(0);
+	return (0);
 }
 
 int	ft_close_game(t_game *game)
@@ -57,15 +58,21 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
+		write(1, "Error\n", 6);
 		write(1, "No map detected.\n", 17);
-		free_all_data(nami);
 		exit(1);
 	}
 	nami = malloc(sizeof(t_game));
+	if (!nami)
+	{
+		write(1, "Error\n", 6);
+		write(2, "Memory allocation failed\n", 25);
+		exit(1);
+	}
 	game_init(nami, argv[1]);
 	mlx_hook(nami->mlx_win, KeyPress, KeyPressMask, &handle_input, nami);
 	mlx_hook(nami->mlx_win, X_EVENT_KEY_EXIT, 0, &handle_input, nami);
 	mlx_loop(nami->mlx);
 	free_all_data(nami);
-	return(0);
+	return (0);
 }

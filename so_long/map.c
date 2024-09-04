@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 23:14:58 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 13:05:43 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:47:47 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	read_map(char *filename, t_game *game)
 {
 	int		fd;
 	char	*line;
+	char	*tmp;
 
 	fd = open(filename, O_RDONLY);
 	if (fd <= 0)
@@ -32,8 +33,7 @@ void	read_map(char *filename, t_game *game)
 		line = get_next_line(fd);
 		if (line)
 		{
-			char *tmp = ft_strjoin_without_nl(game->str_line, line);
-			free(game->str_line);
+			tmp = ft_strjoin_without_nl(game->str_line, line);
 			game->str_line = tmp;
 		}
 	}

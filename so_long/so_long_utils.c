@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:50:29 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 13:11:29 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:21 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char	*ft_strjoin_without_nl(char *s1, char *s2)
 		return (ft_strdup_without_nl(s1));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	new_mem = malloc(s1_len + s2_len);
+	new_mem = malloc(s1_len + s2_len + 1);
 	if (!(new_mem))
 		return (NULL);
 	ft_strlcpy_without_nl(new_mem, s1, s1_len + 1);

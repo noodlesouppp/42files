@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 11:42:00 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 12:25:01 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:05 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	flood_fill(t_game *g, int x, int y)
 {
+	int	index;
+
 	if (x < 0 || x >= g->width || y < 0 || y >= g->height)
-		return;
-	int index = y * g->width + x;
+		return ;
+	index = y * g->width + x;
 	if (g->visited[index] || g->str_line[index] == '1')
-		return;
+		return ;
 	g->visited[index] = 1;
 	if (g->str_line[index] == 'C')
 		g->coins_found++;
@@ -32,9 +34,9 @@ void	flood_fill(t_game *g, int x, int y)
 
 int	check_valid_path(t_game *g)
 {
-	int start_x;
+	int	start_x;
 	int	start_y;
-	int i;
+	int	i;
 
 	start_x = -1;
 	start_y = -1;
@@ -48,7 +50,7 @@ int	check_valid_path(t_game *g)
 		{
 			start_x = i % g->width;
 			start_y = i / g->width;
-			break;
+			break ;
 		}
 		i++;
 	}
