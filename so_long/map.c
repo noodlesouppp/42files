@@ -22,7 +22,8 @@ void	read_map(char *filename, t_game *game)
 	if (fd <= 0)
 		print_error("Failed to open file.\n", game);
 	line = get_next_line(fd);
-	game->height = 0;
+	if (!line)
+		print_error("Map file is empty!\n", game);
 	game->width = ft_strlen(line) - 1;
 	game->walk_count = 0;
 	game->str_line = ft_strdup_without_nl(line);

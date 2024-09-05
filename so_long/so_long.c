@@ -23,6 +23,7 @@ void	game_init(t_game *game, char *map)
 {
 	game->mlx = mlx_init();
 	game->img = img_init(game->mlx);
+	game->height = 0;
 	read_map(map, game);
 	check_map(game);
 	game->mlx_win = mlx_new_window(game->mlx,
