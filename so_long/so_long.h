@@ -28,7 +28,8 @@
 # define KEY_S					115
 # define KEY_D					100
 
-typedef struct s_img {
+typedef struct s_img
+{
 	void	*nami;
 	void	*collect;
 	void	*land;
@@ -38,7 +39,8 @@ typedef struct s_img {
 	void	*wall;
 }				t_img;
 
-typedef struct s_game {
+typedef struct s_game
+{
 	void	*mlx;
 	void	*mlx_win;
 	t_img	img;
