@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 12:25:19 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 15:20:33 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/05 10:31:28 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	free_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->img.land);
 	mlx_destroy_image(game->mlx, game->img.exit1);
 	mlx_destroy_image(game->mlx, game->img.exit2);
+	mlx_destroy_image(game->mlx, game->img.exitx);
 	mlx_destroy_image(game->mlx, game->img.wall);
 }

@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 15:49:34 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:46:50 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/05 11:35:21 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_img	img_init(void *mlx)
 			&height, &width);
 	render.exit2 = mlx_xpm_file_to_image(mlx, "./images/exit2.xpm",
 			&height, &width);
+	render.exitx = mlx_xpm_file_to_image(mlx, "./images/exitx.xpm",
+			&height, &width);
 	render.land = mlx_xpm_file_to_image(mlx, "./images/land.xpm",
 			&height, &width);
 	render.nami = mlx_xpm_file_to_image(mlx, "./images/nami.xpm",
@@ -33,27 +35,32 @@ t_img	img_init(void *mlx)
 	return (render);
 }
 
-void	put_img(t_game *g, int h, int w)
+void	put_img(t_game *g, int h, int w, int index)
 {
-	if (g->str_line[w * g->width + h] == '1')
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.wall,
-			h * 64, w * 64);
-	else if (g->str_line[w * g->width + h] == 'C')
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.collect,
-			h * 64, w * 64);
-	else if (g->str_line[w * g->width + h] == 'P')
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.nami,
-			h * 64, w * 64);
-	else if (g->str_line[w * g->width + h] == 'E'
-		&& g->all_col == g->coin_count)
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.exit2,
-			h * 64, w * 64);
-	else if (g->str_line[w * g->width + h] == 'E')
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.exit1,
-			h * 64, w * 64);
-	else
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.land,
-			h * 64, w * 64);
+	char	tile;
+	void	*img;
+
+	tile = g->str_line[index];
+	img = g->img.land;
+	if (tile == '1')
+		img = g->img.wall;
+	else if (tile == 'C')
+		img = g->img.collect;
+	else if (tile == 'P')
+	{
+		if (g->on_exit)
+			img = g->img.exitx;
+		else
+			img = g->img.nami;
+	}
+	else if (tile == 'E')
+	{
+		if (g->all_col == g->coin_count)
+			img = g->img.exit2;
+		else
+			img = g->img.exit1;
+	}
+	mlx_put_image_to_window(g->mlx, g->mlx_win, img, h * 64, w * 64);
 }
 
 void	set_image(t_game *game)
@@ -67,7 +74,7 @@ void	set_image(t_game *game)
 		width = 0;
 		while (width < game->width)
 		{
-			put_img(game, width, height);
+			put_img(game, width, height, height * game->width + width);
 			width++;
 		}
 		height++;

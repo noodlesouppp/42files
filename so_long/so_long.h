@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:34:29 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 16:06:47 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/05 11:35:42 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_img {
 	void	*land;
 	void	*exit1;
 	void	*exit2;
+	void	*exitx;
 	void	*wall;
 }				t_img;
 
@@ -50,13 +51,14 @@ typedef struct s_game {
 	char	*visited;
 	int		coins_found;
 	int		exit_found;
+	int		on_exit;
 }				t_game;
 
 void	free_all_data(t_game *game);
 void	free_images(t_game *game);
 
 t_img	img_init(void *mlx);
-void	put_img(t_game *g, int w, int h);
+void	put_img(t_game *g, int w, int h, int index);
 void	set_image(t_game *game);
 
 void	read_map(char *filename, t_game *game);
@@ -72,6 +74,7 @@ char	*ft_strdup_without_nl(char *s);
 int		ft_strlcpy_without_nl(char *dst, char *src, int len);
 char	*ft_strjoin_without_nl(char *s1, char *s2);
 
+void	handle_movement(t_game *g, int current, int next);
 void	move_w(t_game *g);
 void	move_a(t_game *g);
 void	move_s(t_game *g);

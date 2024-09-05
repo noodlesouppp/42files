@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 14:31:22 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 16:07:24 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/05 11:00:10 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	game_init(t_game *game, char *map)
 	check_map(game);
 	game->mlx_win = mlx_new_window(game->mlx,
 			game->width * 64, game->height * 64, "so_long");
+	game->on_exit = 0;
 	set_image(game);
 }
 

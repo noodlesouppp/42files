@@ -6,11 +6,19 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 23:50:29 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/04 14:51:21 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/05 11:23:21 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+int	clear_game(t_game *game)
+{
+	game->walk_count++;
+	ft_printf("%s %d %s\n", "You helped Nami in", game->walk_count, "steps!");
+	free_all_data(game);
+	exit(0);
+}
 
 char	*ft_strdup_without_nl(char *s)
 {
