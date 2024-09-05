@@ -38,13 +38,17 @@ FT_PRINTF = ft_printf
 FT_PRINTF_LIB = libftprintf.a
 FT_PRINTF_PATH = $(FT_PRINTF)/$(FT_PRINTF_LIB)
 
+MLX = mlx_linux
+MLX_LIB = libmlx_Linux.a
+MLX_PATH = $(MLX)/$(MLX_LIB)
+
 AR = ar rc
 
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT_PATH) $(FT_PRINTF_PATH)
+$(NAME): $(OBJS) $(LIBFT_PATH) $(FT_PRINTF_PATH) $(MLX_PATH)
 		$(CC) -o $(NAME) $(OBJS) -Llibft -lft -L$(FT_PRINTF) -lftprintf -Lmlx_linux -lmlx_Linux -L./mlx_linux -Imlx_linux -lXext -lX11 -lm -lz
 
 %.o: %.c $(HEADER)
@@ -56,15 +60,20 @@ $(LIBFT_PATH):
 $(FT_PRINTF_PATH):
 		make -C $(FT_PRINTF)
 
+$(MLX_PATH):
+		make -C $(MLX)
+
 clean:
 		$(RM) $(OBJS)
 		make -C $(LIBFT) clean
 		make -C $(FT_PRINTF) clean
+		make -C $(MLX) clean
 
 fclean: clean
 		$(RM) $(NAME)
 		make -C $(LIBFT) fclean
 		make -C $(FT_PRINTF) fclean
+		make -C $(MLX) clean
 
 re: fclean all
 
