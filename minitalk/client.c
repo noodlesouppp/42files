@@ -6,7 +6,16 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:14:43 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/06 12:14:58 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/06 17:59:28 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minitalk.h"
+
+int main(int argc, char **argv)
+{
+    if (argc != 3)
+        return (1);
+    ft_putstr_fd(argv[2], 1);
+    return (0);
+}
