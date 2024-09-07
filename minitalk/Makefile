@@ -6,7 +6,7 @@
 #    By: yousong <yousong@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/06 17:49:06 by yousong           #+#    #+#              #
-#    Updated: 2024/09/07 20:15:20 by yousong          ###   ########.fr        #
+#    Updated: 2024/09/07 20:32:33 by yousong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,6 @@ BONUSOBJS = $(BONUSSRCS:%.c=%.o)
 BONUSOBJC = $(BONUSSRCC:%.c=%.o)
 
 LIBFT = libft/libft.a
-
-ASAN_OP
 
 CC = gcc
 
