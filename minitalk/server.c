@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:14:54 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/07 00:38:25 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/07 13:18:00 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	main(int argc, char **argv)
 	ft_putstr_fd("PID: ", 1);
 	pid = getpid();
 	ft_putnbr_fd(pid, 1);
+	ft_putchar_fd('\n', 1);
 	signal(SIGUSR1, write_bits);
 	signal(SIGUSR2, write_bits);
 	while (1)

@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:15:13 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/07 00:03:48 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/07 13:18:45 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include "libft/libft.h"
+
+void	write_bits(int sig);
 
 #endif
