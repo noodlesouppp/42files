@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 18:04:08 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/07 20:26:03 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/07 21:45:55 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	ft_signal_handler(int sig)
 static void	ft_send_bit(int pid, char c)
 {
 	int	bit;
+	int	counter;
 
 	bit = 0;
 	while (bit < 8)
@@ -34,8 +35,17 @@ static void	ft_send_bit(int pid, char c)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
+		counter = 0;
 		while (!g_client_bonus.ack_received)
+		{
 			usleep(42);
+			counter++;
+			if (counter > 10000)
+			{
+				ft_putstr_fd("Error: No signal received!\n", 1);
+				exit(1);
+			}
+		}
 		bit++;
 	}
 }
@@ -53,6 +63,20 @@ static void	ft_send_str(int pid, char *str)
 	ft_send_bit(pid, '\0');
 }
 
+static int	ft_digit_only(char *str)
+{
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+		{
+			ft_putstr_fd("PID must be all numbers!\n", 1);
+			return (1);
+		}
+		str++;
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int	pid;
@@ -62,6 +86,13 @@ int	main(int argc, char **argv)
 		signal(SIGUSR1, ft_signal_handler);
 		signal(SIGUSR2, ft_signal_handler);
 		pid = ft_atoi(argv[1]);
+		if (ft_strlen(argv[1]) < 1 || pid == 0)
+		{
+			ft_putstr_fd("Invalid PID\n", 1);
+			return (1);
+		}
+		if (ft_digit_only(argv[1]))
+			return (1);
 		ft_send_str(pid, argv[2]);
 		while (!g_client_bonus.all_received)
 			usleep(42);
