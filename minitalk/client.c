@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 12:14:43 by yousong           #+#    #+#             */
-/*   Updated: 2024/09/07 17:18:20 by yousong          ###   ########.fr       */
+/*   Updated: 2024/09/07 17:41:22 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	ft_send_bit(int pid, char c)
 		else
 			kill(pid, SIGUSR1);
 		while(!g_ack_received)
-			usleep(50);
+			usleep(42);
 		bit++;
 	}
 }
