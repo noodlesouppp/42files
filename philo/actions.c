@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:23:02 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:56:33 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 03:45:50 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	thinking(t_philo *philo, bool pre_sim)
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
 	t_think = (t_eat * 2) - t_sleep;
-	if (t_think < 0)
-		t_think = 0;
-	usleep(t_think * 0.42);
+	if (t_think < t_eat)
+		t_think = t_eat;
+	usleep(t_think);
 }
 
 void	sleeping(t_philo *philo)

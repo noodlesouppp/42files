@@ -6,20 +6,11 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 06:46:36 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:53:11 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 03:53:19 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	desync_philo(t_philo *philo)
-{
-	if (philo->table->num_of_philo % 2 == 1)
-	{
-		if (philo->id % 2 == 0)
-			usleep(30000);
-	}
-}
 
 static void	*one_philo(void *arg)
 {
@@ -50,7 +41,6 @@ void	*start_sim(void *data)
 		eating(philo);
 		sleeping(philo);
 		thinking(philo, false);
-		desync_philo(philo);
 	}
 	return (NULL);
 }
