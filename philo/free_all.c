@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 03:14:16 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/11 14:04:32 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 14:54:32 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_table(t_table *table)
 	i = -1;
 	while (++i < table->num_of_philo)
 	{
-		mutex_handler(&table->forks[i], DESTROY);
+		mutex_handler(&table->forks[i].fork, DESTROY);
 	}
 	mutex_handler(&table->print_mtx, DESTROY);
 	mutex_handler(&table->table_mtx, DESTROY);
