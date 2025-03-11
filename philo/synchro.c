@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 22:31:31 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:56:42 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 09:19:16 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,6 @@ void	incr_thread(t_mtx *mutex, long *target)
 	mutex_handler(mutex, LOCK);
 	(*target)++;
 	mutex_handler(mutex, UNLOCK);
-}
-
-bool	all_threads_running(t_mtx *mutex, long *threads, long num_of_philo)
-{
-	bool	ret;
-
-	ret = false;
-	mutex_handler(mutex, LOCK);
-	if (*threads == num_of_philo)
-		ret = true;
-	mutex_handler(mutex, UNLOCK);
-	return (ret);
 }
 
 long	get_time(t_time_type type)

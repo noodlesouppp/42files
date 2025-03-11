@@ -6,11 +6,23 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 01:58:08 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:38:20 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 10:21:48 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+bool	all_threads_running(t_mtx *mutex, long *threads, long num_of_philo)
+{
+	bool	ret;
+
+	ret = false;
+	mutex_handler(mutex, LOCK);
+	if (*threads == num_of_philo)
+		ret = true;
+	mutex_handler(mutex, UNLOCK);
+	return (ret);
+}
 
 static bool	is_dead(t_philo *philo)
 {
@@ -43,8 +55,8 @@ void	*monitor_dinner(void *data)
 		{
 			if (is_dead(table->philos + i))
 			{
-				set_bool(&table->table_mtx, &table->end_sim, true);
 				print_status(table->philos + i, DIED);
+				set_bool(&table->table_mtx, &table->end_sim, true);
 			}
 		}
 	}

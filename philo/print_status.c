@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 23:22:51 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:33:25 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 10:21:59 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	print_status(t_philo *philo, const char status)
 		printf("%-6ld" " %d is sleeping\n", elapsed, philo->id);
 	else if (status == THINKING && !simulation_fin(philo->table))
 		printf("%-6ld" " %d is thinking\n", elapsed, philo->id);
-	else if (status == DIED)
+	else if (status == DIED && !simulation_fin(philo->table))
 		printf("%-6ld" " %d died\n", elapsed, philo->id);
 	mutex_handler(&philo->table->print_mtx, UNLOCK);
 }

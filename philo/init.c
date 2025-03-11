@@ -6,14 +6,11 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 03:46:33 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:18:05 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 10:25:19 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-/* 	if odd number, take left fork first 
-	otherwise if even number, take right fork first */
 
 static void	assign_forks(t_philo *philo, t_fork *forks, int pos)
 {
