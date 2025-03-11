@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 06:46:36 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/11 03:53:19 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:25:02 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	*start_sim(void *data)
 			break ;
 		eating(philo);
 		sleeping(philo);
-		thinking(philo, false);
+		thinking(philo);
 	}
 	return (NULL);
 }

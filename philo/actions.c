@@ -6,13 +6,13 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 02:23:02 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/11 03:45:50 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:48:25 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	thinking(t_philo *philo, bool pre_sim)
+void	thinking(t_philo *philo)
 {
 	long	t_eat;
 	long	t_sleep;
@@ -20,15 +20,14 @@ void	thinking(t_philo *philo, bool pre_sim)
 
 	if (philo->full)
 		return ;
-	if (!pre_sim)
-		print_status(philo, THINKING);
+	print_status(philo, THINKING);
 	if (philo->table->num_of_philo % 2 == 0)
 		return ;
 	t_eat = philo->table->time_to_eat;
 	t_sleep = philo->table->time_to_sleep;
 	t_think = (t_eat * 2) - t_sleep;
 	if (t_think < t_eat)
-		t_think = t_eat;
+		t_think = 0;
 	usleep(t_think);
 }
 

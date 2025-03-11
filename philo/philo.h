@@ -6,7 +6,7 @@
 /*   By: yousong <yousong@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 01:15:52 by yousong           #+#    #+#             */
-/*   Updated: 2025/03/10 08:56:28 by yousong          ###   ########.fr       */
+/*   Updated: 2025/03/11 11:24:57 by yousong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ void	print_status(t_philo *philo, const char status);
 void	*monitor_dinner(void *data);
 
 /* actions.c */
-void	thinking(t_philo *philo, bool pre_sim);
+void	thinking(t_philo *philo);
 void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 
